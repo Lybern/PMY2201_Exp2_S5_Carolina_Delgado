@@ -30,7 +30,7 @@ object Validaciones {
         if (!esTelefonoValido(telefono)) {
             return "El teléfono debe tener entre 8 y 12 dígitos."
         }
-        val edad = edadTexto.trim().toIntOrNull()
+        val edad = edadTexto.filter { it.isDigit() }.toIntOrNull()
         if (edad == null || edad !in 0..35) {
             return "Ingresa una edad válida para la mascota (0 a 35 años)."
         }
